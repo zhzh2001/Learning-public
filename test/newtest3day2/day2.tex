@@ -1,0 +1,375 @@
+\documentclass[hyperref,UTF8,12pt,a4paper]{ctexart}
+
+\usepackage{amsmath,multirow,makecell,algorithm}
+
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\usepackage{geometry}
+\geometry{left=1in,right=1in,top=1in,bottom=1in}
+
+\usepackage{titling}
+\pretitle{\begin{center}\fontsize{30pt}{30pt}\selectfont}
+\posttitle{\end{center}}
+
+\usepackage{algpseudocode}
+
+\title{NOIp Senior Day2}
+\author{zhzh2001}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\begin{tabular}{|p{100pt}|p{100pt}|p{100pt}|p{100pt}|}
+\hline
+题目名称 & 围栏 & Quicksort Killer & 花园改造\\
+\hline
+目录 & \verb|corral| & \verb|qkiller| & \verb|landscape|\\
+\hline
+可执行文件名 & \verb|corral| & \verb|qkiller| & \verb|landscape|\\
+\hline
+输入文件名 & \verb|corral.in| & \verb|qkiller.in| & \verb|landscape.in|\\
+\hline
+输出文件名 & \verb|corral.out| & \verb|qkiller.out| & \verb|landscape.out|\\
+\hline
+时间限制 & 1s & 1s & 1s\\
+\hline
+空间限制 & 512MB & 512MB & 512MB\\
+\hline
+测试点数量 & 20 & 10 & 20\\
+\hline
+测试点分数 & 5 & 10 & 5\\
+\hline
+比较方式 & 全文 & SPJ & 全文\\
+\hline
+部分分 & 无 & 无 & 无\\
+\hline
+\end{tabular}
+\end{center}
+提交源程序文件名
+\begin{center}
+\begin{tabular}{|p{60pt}p{28pt}|p{100pt}|p{100pt}|p{100pt}|}
+\hline
+对于C++ & 语言 & \verb|corral.cpp|& \verb|qkiller.cpp| & \verb|landscape.cpp| \\
+\hline
+对于C & 语言 & \verb|corral.c| & \verb|qkiller.c| & \verb|landscape.c|\\
+\hline
+对于Pascal & 语言 & \verb|corral.pas|& \verb|qkiller.pas| & \verb|landscape.pas|\\
+\hline
+\end{tabular}
+\end{center}
+编译选项
+\begin{center}
+\begin{tabular}{|p{60pt}p{28pt}|p{100pt}|p{100pt}|p{100pt}|}
+\hline
+对于C++ & 语言 & \verb|-O2 -std=gnu++11| & \verb|-O2 -std=gnu++11| & \verb|-O2 -std=gnu++11|\\
+\hline
+对于C & 语言 & \verb|-O2| & \verb|-O2| & \verb|-O2|\\
+\hline
+对于Pascal & 语言 & \verb|-O2| & \verb|-O2| & \verb|-O2|\\
+\hline
+\end{tabular}
+\end{center}
+注意事项：
+\begin{enumerate}
+\item 注意编译选项，避免未定义行为或编译错误。
+\item 代码长度限制为100KB。
+\item 注意代码常数和I/O造成的效率影响。
+\end{enumerate}
+
+\newpage
+
+\section{围栏(corral.c/cpp/pas)}
+% sorrel...
+
+\subsection{题目描述}
+
+农夫约翰打算建造一个围栏来圈养他的奶牛。作为最挑剔的兽类，奶牛们要求这个围栏\underline{\textbf{必须是正方形}}的，并且围栏里\underline{\textbf{至少}}要有$C$个草场，来供应它们的食物。
+
+约翰的土地上一共有$N$个草场($1\le C\le N\le3,000$)，每个草场都在一块\underline{\textbf{1x1的方}}\\\underline{\textbf{格}}内，坐标范围$0\dots10^{18}$。如果有多个草场在同一个方格内，那么\underline{\textbf{它们的坐标就会相同}}。
+
+请帮助约翰计算围栏的最小边长。
+
+\subsection{输入格式(corral.in)}
+
+第一行两个整数$C,N$。
+
+接下来$N$行，每行两个整数，表示一个草场所在方格的坐标。
+
+\subsection{输出格式(corral.out)}
+
+输出最小边长。
+
+\subsection{输入样例}
+
+\begin{verbatim}
+3 4
+1 2
+2 1
+4 1
+5 2
+\end{verbatim}
+
+\subsection{输出样例}
+
+\begin{verbatim}
+4
+\end{verbatim}
+
+\subsection{样例解释}
+
+围栏左上角坐标可以为(1,1)，边长为4，此时前三个草场都在围栏内。更小的边长不能满足要求。
+
+\subsection{数据范围}
+
+\begin{center}
+\begin{tabular}{P{50pt}|P{180pt}|P{180pt}}
+\Xhline{3\arrayrulewidth}
+测试点 & $N$ & 坐标范围\\
+\Xhline{2\arrayrulewidth}
+1 & \multirow{2}{*}{$\le5$} & $0\dots10$\\
+\cline{1-1}\cline{3-3}
+2 && $0\dots10^{18}$\\
+\hline
+3 & $\le10$ & $0\dots1,000$\\
+\hline
+4 & \multirow{3}{*}{$\le50$} & $0\dots50$\\
+\cline{1-1}\cline{3-3}
+5 && $0\dots200$\\
+\cline{1-1}\cline{3-3}
+6 && $0\dots10^{18}$\\
+\hline
+7 & \multirow{3}{*}{$\le200$} & $0\dots200$\\
+\cline{1-1}\cline{3-3}
+8 && $0\dots5,000$\\
+\cline{1-1}\cline{3-3}
+9 && $0\dots10^{18}$\\
+\hline
+10 & \multirow{3}{*}{$\le500$} & $0\dots500$\\
+\cline{1-1}\cline{3-3}
+11 && $0\dots5,000$\\
+\cline{1-1}\cline{3-3}
+12 && $0\dots10^{18}$\\
+\hline
+13 & \multirow{2}{*}{$\le1,000$} & $0\dots5,000$\\
+\cline{1-1}\cline{3-3}
+14 && $0\dots10^{18}$\\
+\hline
+15 & \multirow{2}{*}{$\le2,000$} & $0\dots500$\\
+\cline{1-1}\cline{3-3}
+16 && $0\dots10^{18}$\\
+\hline
+17 & \multirow{4}{*}{$\le3,000$} & $0\dots200$\\
+\cline{1-1}\cline{3-3}
+18 && \multirow{2}{*}{$0\dots1,000,000,000$}\\
+\cline{1-1}
+19 &&\\
+\cline{1-1}\cline{3-3}
+20 && $0\dots10^{18}$\\
+\Xhline{3\arrayrulewidth}
+\end{tabular}
+\end{center}
+
+\newpage
+
+\section{Quicksort Killer(qkiller.c/cpp/pas)}
+
+\subsection{题目描述}
+
+快速排序是一种广为使用的排序算法，其最好和平均时间复杂度均为$\Theta(N\log N)$，但是最坏时间复杂度可达$\Theta(N^2)$。为了简化问题，我们考虑给$N$个32位\underline{\textbf{随机}}整数排序($N=100,000$)。
+
+你的任务是，给定这$N$个整数，\underline{\textbf{重新排列}}这些整数，使得特定的快速排序实现运行时间超过1s。
+
+我们考虑一种常见的实现，来自\verb|Free Pascal|的示例代码：
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+\Procedure{Sort}{$A,l,r$}\Comment{对$A[l\dots r]$排序}
+\State{$i\gets l$}
+\State{$j\gets r$}
+\State{$x\gets A$[\Call{F}{$l,r$}]}\Comment{$x$为\emph{基准值}}
+\Repeat
+\While{$A[i]<x$}
+\State{$i\gets i+1$}
+\EndWhile
+\While{$x<A[j]$}
+\State{$j\gets j-1$}
+\EndWhile
+\If{$i\le j$}
+\State{\Call{Swap}{$A[i],A[j]$}}
+\State{$i\gets i+1$}
+\State{$j\gets j-1$}
+\EndIf
+\Until{$i>j$}
+\If{$l<j$}
+\State{\Call{Sort}{$l,j$}}
+\EndIf
+\If{$i<r$}
+\State{\Call{Sort}{$i,r$}}
+\EndIf
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+其中\verb|F(l, r)|返回一个[l, r]之间的数，作为\emph{基准值}的下标。这里，你需要考虑四种实现：
+
+\begin{enumerate}
+\item F(l, r) = (l + r) / 2
+\item F(l, r) = l
+\item F(l, r) = r
+\item F(l, r) = random(l, r)
+\end{enumerate}
+
+上述除法为整数除法，\verb|random(l, r)|函数返回[l, r]间的伪随机数。随机函数的工作原理如下：
+
+在程序开始时，自动初始化随机数种子$x_0 = time(NULL)$，\verb|time(NULL)|函数同C/C++中同名函数，即返回从\underline{\textbf{UTC 1970/01/01 00:00:00}}开始到调用时经过的\underline{\textbf{秒数}}。(不必考虑闰秒等问题)
+
+\verb|random(l, r)|函数第$i$次调用时$x_i = x_{i-1} * 48,271 \mod 2,147,483,647$(即\\\verb|minstd_rand|)，返回值为$x_i \mod (r-l+1) +l$。
+
+\subsection{输入格式(qkiller.in)}
+
+第一行一个整数$type$($type\in[1,4]$)，表示F函数的实现。
+
+如果$type=4$，接下来一行一个时间，格式为\verb|yyyy/mm/dd hh:mm:ss|，表示调用时间，范围从UTC 1970/1/1 00:00:00到2020/12/31 23:59:59。
+
+接下来一行$N$个整数，在32位有符号整数范围内。
+
+\subsection{输出格式(qkiller.out)}
+
+输出$N$个符合要求的整数。
+
+\subsection{数据范围}
+
+\begin{center}
+\begin{tabular}{P{50pt}|P{180pt}|P{180pt}}
+\Xhline{3\arrayrulewidth}
+测试点 & $type$ & 整数范围\\
+\Xhline{2\arrayrulewidth}
+1 & \multirow{2}{*}{=1} & $[-2^{31},2^{31})$\\
+\cline{1-1}\cline{3-3}
+2 && $[-10^8,10^8]$\\
+\hline
+3 & \multirow{2}{*}{=2} & $[-2^{31},2^{31})$\\
+\cline{1-1}\cline{3-3}
+4 && $[-1,000,1,000]$\\
+\hline
+5 & \multirow{2}{*}{=3} & $[-2^{31},2^{31})$\\
+\cline{1-1}\cline{3-3}
+6 && $[-1,000,1,000]$\\
+\hline
+7 & \multirow{4}{*}{=4} & $[-2^{31},2^{31})$\\
+\cline{1-1}\cline{3-3}
+8 && \multirow{3}{*}{$[-10^8,10^8]$}\\
+\cline{1-1}
+9 &&\\
+\cline{1-1}
+10 &&\\
+\Xhline{3\arrayrulewidth}
+\end{tabular}
+\end{center}
+
+对于100\%的数据，整数都在对应的范围内\underline{\textbf{等概率随机}}生成。
+
+\newpage
+
+\section{花园改造(landscape.c/cpp/pas)}
+
+\subsection{题目描述}
+
+农夫约翰正在建造一个漂亮的花园，并且在这个工程中需要移动大量的泥土。
+
+这个花园可以看作一个由$N$个花坛组成的序列($1\le N\le100,000$)，花坛$i$最初包含$A_i$个单位的泥土。农夫约翰想要改造这个花园，使得花坛$i$包含$B_i$个单位的泥土。$A_i,B_i$都是$0\dots50$之间的整数。
+
+为了改造花园，农夫约翰有几种选项：
+
+\begin{itemize}
+\item 花费$X$元购买一个单位泥土，并把它放在一个他选择的花坛中。
+\item 花费$Y$元移除他选择的花坛中一个单位泥土，并把它运走。
+\item 花费$Z*|i-j|$元把一个单位泥土从花坛$i$运送到花坛$j$。
+\end{itemize}
+
+请计算完成改造计划的最小花费。
+
+\subsection{输入格式(landscape.in)}
+
+第一行四个整数$N,X,Y,Z$($0\le X,Y\le10^8;0\le Z\le1,000$)。
+
+接下来$N$行，每行两个整数$A_i,B_i$。
+
+\subsection{输出格式(landscape.out)}
+
+输出完成改造计划的最小花费。
+
+\subsection{输入样例}
+
+\begin{verbatim}
+4 100 200 1
+1 4
+2 3
+3 2
+4 0
+\end{verbatim}
+
+\subsection{输出样例}
+
+\begin{verbatim}
+210
+\end{verbatim}
+
+\subsection{样例解释}
+
+有一个单位的泥土必须被移除(从第四个花坛)，花费200元。剩下的泥土可以花费10元移动(三个单位泥土从第四个花坛到第一个，一个单位从第三个到第二个)。
+
+\subsection{数据范围}
+
+\begin{center}
+\begin{tabular}{P{50pt}|P{180pt}|P{180pt}}
+\Xhline{3\arrayrulewidth}
+测试点 & $N$ & $A_i,B_i$\\
+\Xhline{2\arrayrulewidth}
+1 & $\le3$ & $\le3$ \\
+\hline
+2 & $\le4$ & $\le4$ \\
+\hline
+3 & $\le5$ & \multirow{2}{*}{$\le5$} \\
+\cline{1-2}
+4 & \multirow{2}{*}{$\le10$} & \\
+\cline{1-1}\cline{3-3}
+5 & & \multirow{5}{*}{$\le10$} \\
+\cline{1-2}
+6 & $\le20$ & \\
+\cline{1-2}
+7 & $\le30$ & \\
+\cline{1-2}
+8 & $\le50$ & \\
+\cline{1-2}
+9 & \multirow{4}{*}{$\le100$} & \\
+\cline{1-1}\cline{3-3}
+10 & & $\le20$ \\
+\cline{1-1}\cline{3-3}
+11 & & $\le30$ \\
+\cline{1-1}\cline{3-3}
+12 & & \multirow{9}{*}{$\le50$} \\
+\cline{1-2}
+13 & $\le500$ & \\
+\cline{1-2}
+14 & $\le1,000$ & \\
+\cline{1-2}
+15 & $\le2,000$ & \\
+\cline{1-2}
+16 & $\le5,000$ & \\
+\cline{1-2}
+17 & $\le20,000$ & \\
+\cline{1-2}
+18 & $\le50,000$ & \\
+\cline{1-2}
+19 & \multirow{2}{*}{$\le100,000$} & \\
+\cline{1-1}
+20 & & \\
+\Xhline{3\arrayrulewidth}
+\end{tabular}
+\end{center}
+
+\end{document}

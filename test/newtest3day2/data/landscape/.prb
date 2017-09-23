@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem version="1.1.0" maker="ccr-plus" type="TRA_0_4">
+    <source code="100" dir="landscape" file="landscape">
+        <language time="10" file="landscape.c" cmd="gcc -o landscape landscape.c -lm -static -O2"/>
+        <language time="10" file="landscape.cpp" cmd="g++ -o landscape landscape.cpp -lm -static -O2 -std=gnu++11"/>
+        <language time="10" file="landscape.pas" cmd="fpc landscape.pas -O2"/>
+    </source>
+    <task time="10" input="landscape.in" checker="fulltext" output="landscape.out">
+        <subtask score="5">
+            <point time="1" out="landscape1.out" mem="512" in="landscape1.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape2.out" mem="512" in="landscape2.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape3.out" mem="512" in="landscape3.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape4.out" mem="512" in="landscape4.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape5.out" mem="512" in="landscape5.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape6.out" mem="512" in="landscape6.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape7.out" mem="512" in="landscape7.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape8.out" mem="512" in="landscape8.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape9.out" mem="512" in="landscape9.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape10.out" mem="512" in="landscape10.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape11.out" mem="512" in="landscape11.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape12.out" mem="512" in="landscape12.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape13.out" mem="512" in="landscape13.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape14.out" mem="512" in="landscape14.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape15.out" mem="512" in="landscape15.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape16.out" mem="512" in="landscape16.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape17.out" mem="512" in="landscape17.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape18.out" mem="512" in="landscape18.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape19.out" mem="512" in="landscape19.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="landscape20.out" mem="512" in="landscape20.in"/>
+        </subtask>
+    </task>
+</problem>

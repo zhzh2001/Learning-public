@@ -1,0 +1,362 @@
+\documentclass[hyperref,UTF8,12pt,a4paper]{ctexart}
+
+\usepackage{amsmath,makecell,multirow}
+
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\usepackage{geometry}
+\geometry{left=1in,right=1in,top=1in,bottom=1in}
+
+\usepackage{titling}
+\pretitle{\begin{center}\fontsize{30pt}{30pt}\selectfont}
+\posttitle{\end{center}}
+
+\title{NOIp Senior Day1}
+\author{zhzh2001}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\begin{tabular}{|p{100pt}|p{100pt}|p{100pt}|p{100pt}|}
+\hline
+题目名称 & 阶乘 & 激光和镜子 & 干草堆猜测\\
+\hline
+目录 & \verb|fact| & \verb|lasers| & \verb|bales|\\
+\hline
+可执行文件名 & \verb|fact| & \verb|lasers| & \verb|bales|\\
+\hline
+输入文件名 & \verb|fact.in| & \verb|lasers.in| & \verb|bales.in|\\
+\hline
+输出文件名 & \verb|fact.out| & \verb|lasers.out| & \verb|bales.out|\\
+\hline
+时间限制 & 1s & 1s & 1s\\
+\hline
+空间限制 & 512MB & 512MB & 512MB\\
+\hline
+测试点数量 & 20 & 20 & 20\\
+\hline
+测试点分数 & 5 & 5 & 5\\
+\hline
+比较方式 & SPJ & 全文 & 全文\\
+\hline
+部分分 & 有 & 无 & 无\\
+\hline
+\end{tabular}
+\end{center}
+提交源程序文件名
+\begin{center}
+\begin{tabular}{|p{60pt}p{28pt}|p{100pt}|p{100pt}|p{100pt}|}
+\hline
+对于C++ & 语言 & \verb|fact.cpp|& \verb|lasers.cpp| & \verb|bales.cpp| \\
+\hline
+对于C & 语言 & \verb|fact.c| & \verb|lasers.c| & \verb|bales.c|\\
+\hline
+对于Pascal & 语言 & \verb|fact.pas|& \verb|lasers.pas| & \verb|bales.pas|\\
+\hline
+\end{tabular}
+\end{center}
+编译选项
+\begin{center}
+\begin{tabular}{|p{60pt}p{28pt}|p{100pt}|p{100pt}|p{100pt}|}
+\hline
+对于C++ & 语言 & \verb|-O2 -std=gnu++11| & \verb|-O2 -std=gnu++11| & \verb|-O2 -std=gnu++11|\\
+\hline
+对于C & 语言 & \verb|-O2| & \verb|-O2| & \verb|-O2|\\
+\hline
+对于Pascal & 语言 & \verb|-O2| & \verb|-O2| & \verb|-O2|\\
+\hline
+\end{tabular}
+\end{center}
+注意事项：
+\begin{enumerate}
+\item 注意编译选项，避免未定义行为或编译错误。
+\item 代码长度限制为100KB。
+\item 注意代码常数和I/O造成的效率影响。
+\end{enumerate}
+
+\newpage
+
+\section{阶乘(fact.cpp/c/pas)}
+
+\subsection{题目描述}
+
+定义$n!=\prod_{i=1}^n n\;\;\forall n\ge1$。请求出$n!$($1\le n\le1,000,000,000$)的近似值，保留$k$位($k\le10$)有效数字。
+
+\subsection{输入格式(fact.in)}
+
+两个整数$n,k$。
+
+\subsection{输出格式(fact.out)}
+
+一个用科学记数法表示的答案，格式为\verb|d.ddddde+dddd|，其中d表示数字。当然，实际的长度与$n$和$k$有关。\underline{\textbf{不要输出末尾的0，如果没有小数部分，不要输出小数点。}}
+
+\subsection{输入样例}
+
+\begin{verbatim}
+10 4
+\end{verbatim}
+
+\subsection{输出样例}
+
+\begin{verbatim}
+3.629e+6
+\end{verbatim}
+
+\subsection{样例解释}
+
+$10!=3,628,800\approx3.629*10^6$
+
+\subsection{数据范围}
+
+\begin{center}
+\begin{tabular}{P{50pt}|P{180pt}|P{180pt}}
+\Xhline{3\arrayrulewidth}
+测试点 & $n$ & $k$\\
+\Xhline{2\arrayrulewidth}
+1 & $\le20$ & \multirow{13}{*}{$\le6$}\\
+\cline{1-2}
+2 & $\le100$\\
+\cline{1-2}
+3 & $\le150$\\
+\cline{1-2}
+4 & $\le500$\\
+\cline{1-2}
+5 & $\le1,000$\\
+\cline{1-2}
+6 & $\le1,500$\\
+\cline{1-2}
+7 & $\le2,000$\\
+\cline{1-2}
+8 & $\le3,000$\\
+\cline{1-2}
+9 & $\le5,000$\\
+\cline{1-2}
+10 & $\le10,000$\\
+\cline{1-2}
+11 & $\le50,000$\\
+\cline{1-2}
+12 & $\le3,000,000$\\
+\cline{1-2}
+13 & $\le10,000,000$\\
+\hline
+14 & \multirow{2}{*}{$\le1,000,000$} & $\le7$\\
+\cline{1-1}\cline{3-3}
+15 && $\le8$\\
+\hline
+16 & \multirow{2}{*}{$\le100,000,000$} & $\le9$\\
+\cline{1-1}\cline{3-3}
+17 && \multirow{4}{*}{$\le10$}\\
+\cline{1-2}
+18 & $\le200,000,000$\\
+\cline{1-2}
+19 & $\le500,000,000$\\
+\cline{1-2}
+20 & $\le1,000,000,000$\\
+\Xhline{3\arrayrulewidth}
+\end{tabular}
+\end{center}
+
+\subsection{部分分}
+
+\begin{itemize}
+\item 如果你的答案格式错误，不得分
+\item 如果你的答案格式正确，并且e前的部分完全正确，得到测试点60\%的分数
+\item 如果你的答案格式正确，并且e后的部分完全正确，得到测试点40\%的分数
+\end{itemize}
+
+\newpage
+
+\section{激光和镜子(lasers.cpp/c/pas)}
+
+\subsection{题目描述}
+
+因为一些原因，农夫约翰的奶牛总是喜欢进行激光展示。
+
+为了它们最新的展示，奶牛们已经取得了一个巨大而强大的激光源------它是如此的巨大，实际上，以至于它们看起来不能轻松的把它从交付的地方移动。它们想找到一种方法把激光从光源处发送到在另一边的牛棚。光源和牛棚可以看成在二维平面上的点。奶牛们打算旋转光源使其沿水平或竖直方向发出一束光(也就是和x轴或y轴平行)。它们将会通过一些镜子反射激光，使其重定向到牛棚。
+
+在农场上有$N$个\underline{\textbf{不同}}的栅栏柱($1\le N\le300,000$)在二维平面上(\underline{\textbf{不同于光源和}}\\\underline{\textbf{牛棚}})，奶牛可以把镜子挂载在栅栏柱上面。奶牛也可以选择不在一个栅栏柱上挂载镜子，这种情况下激光将会简单地直接从上面通过而\underline{\textbf{不改变方向}}。如果奶牛在栅栏柱上挂载了镜子，它们可以把镜子对齐像/或\textbackslash，这样它将会把一束水平的光重定向为竖直方向，反之亦然。
+
+请计算奶牛\underline{\textbf{最少}}需要多少镜子来把激光重定向到牛棚，\underline{\textbf{数据保证有解}}。
+
+\subsection{输入格式(lasers.in)}
+
+第一行包含五个整数$N,x_L,y_L,x_B,y_B$，其中$(x_L,y_L)$是光源所在的位置，$(x_B,y_B)$是牛棚所在的位置。所有的坐标都在0到1,000,000,000之间。
+
+接下来$N$行，每行包含一个栅栏柱的坐标，也在$0\dots1,000,000,000$范围内。
+
+\subsection{输出格式(lasers.out)}
+
+输出最少需要的镜子的数量。
+
+\subsection{输入样例}
+
+\begin{verbatim}
+4 0 0 7 2
+3 2
+0 2
+1 6
+3 0
+\end{verbatim}
+
+\subsection{输出样例}
+
+\begin{verbatim}
+1
+\end{verbatim}
+
+\subsection{样例解释}
+
+沿竖直方向发出一束光，在(0,2)处放置/的镜子，即可重定向到牛棚。
+
+\subsection{数据范围}
+
+\begin{center}
+\begin{tabular}{P{50pt}|P{180pt}|P{180pt}}
+\Xhline{3\arrayrulewidth}
+测试点 & $N$ & 坐标范围\\
+\Xhline{2\arrayrulewidth}
+1 & $\le5$ & \multirow{2}{*}{$0\dots100$}\\
+\cline{1-2}
+2 & $\le10$\\
+\hline
+3 & $\le50$ & \multirow{4}{*}{$0\dots200$}\\
+\cline{1-2}
+4 & $\le100$\\
+\cline{1-2}
+5 & $\le200$\\
+\cline{1-2}
+6 & $\le500$\\
+\hline
+7 & $\le1,000$ & \multirow{4}{*}{$0\dots2,000$}\\
+\cline{1-2}
+8 & $\le2,000$\\
+\cline{1-2}
+9 & $\le5,000$\\
+\cline{1-2}
+10 & \multirow{2}{*}{$\le10,000$}\\
+\cline{1-1}\cline{3-3}
+11 && $0\dots1,000,000,000$\\
+\hline
+12 & \multirow{3}{*}{$\le20,000$} & $0\dots2,000$\\
+\cline{1-1}\cline{3-3}
+13 && $0\dots100,000$\\
+\cline{1-1}\cline{3-3}
+14 && $0\dots1,000,000,000$\\
+\hline
+15 & \multirow{2}{*}{$\le50,000$} & $0\dots100,000$\\
+\cline{1-1}\cline{3-3}
+16 && $0\dots1,000,000,000$\\
+\hline
+17 & \multirow{2}{*}{$\le100,000$} & $0\dots100,000$\\
+\cline{1-1}\cline{3-3}
+18 && $0\dots1,000,000,000$\\
+\hline
+19 & \multirow{2}{*}{$\le300,000$} & $0\dots150,000$\\
+\cline{1-1}\cline{3-3}
+20 && $0\dots1,000,000,000$\\
+\Xhline{3\arrayrulewidth}
+\end{tabular}
+\end{center}
+
+\newpage
+
+\section{干草堆猜测(bales.cpp/c/pas)}
+
+\subsection{题目描述}
+
+奶牛们设计了一个猜数游戏，来锻炼它们的逻辑推理能力。
+
+游戏开始前，一头奶牛会在牛棚后面摆$N$堆干草($1\le N\le1,000,000$)；每堆干草有若干捆，数量在$1\dots1,000,000,000$之间，\underline{\textbf{并且没有两堆中的草一样多}}。所有干草堆排成一条直线，从左到右编号$1\dots N$。游戏开始后，参与游戏的奶牛会问$Q$个问题($1\le Q\le300,000$)：编号为$Q_l\dots Q_r$的草堆中($1\le Q_l\le Q_r\le N$)，最小的那堆里有多少捆草？
+
+对于每个问题，摆干草的奶牛都要给出回答$A$。奶牛们当然会做这个RMQ问题了，但是现在，它们不知道每堆干草的数量。请你计算摆干草的奶牛\underline{\textbf{第一个}}自相矛盾的回答。
+
+\subsection{输入格式(bales.in)}
+
+第一行两个整数$N,Q$。
+
+接下来$Q$行，每行三个整数$Q_l,Q_r,A$，描述了一个问题以及其回答。
+
+\subsection{输出格式(bales.out)}
+
+如果摆干草的奶牛\underline{\textbf{有可能完全正确地回答了所有问题}}，也就是说，能找到一种使得所有回答都合理的摆放干草的方法，\underline{\textbf{输出0}}。否则输出一个$1\dots Q$之间的数，表示第一个自相矛盾的回答的编号。
+
+\subsection{输入样例}
+
+\begin{verbatim}
+20 4
+1 10 7
+5 19 7
+3 12 8
+11 15 12
+\end{verbatim}
+
+\subsection{输出样例}
+\begin{verbatim}
+3
+\end{verbatim}
+
+\subsection{样例解释}
+
+第三个问题的回答与前两个回答矛盾。因为每堆中的草的数量唯一，从前两个回答中我们能推断出，编号$5\dots10$的干草堆中最小的那堆有7捆干草。很显然，第三个问题的回答与这个推断矛盾。
+
+\subsection{数据范围}
+
+\begin{center}
+\begin{tabular}{P{40pt}|P{100pt}|P{100pt}|P{100pt}|P{40pt}}
+\Xhline{3\arrayrulewidth}
+测试点 & $N$ & $Q$ & $A$ & 性质 \\
+\Xhline{2\arrayrulewidth}
+1 & $\le5$ & \multirow{3}{*}{$\le10$} & $\le5$ & \multirow{2}{*}{=1} \\
+\cline{1-2}\cline{4-4}
+2 & $\le20$ && $\le20$ \\
+\cline{1-2}\cline{4-5}
+3 & $\le100$ && $\le500$ & =2 \\
+\hline
+4 & $\le10$ & \multirow{2}{*}{$\le20$} & $\le10$ & =1 \\
+\cline{1-2}\cline{4-5}
+5 & $\le10,000$ && $\le50,000$ & =2 \\
+\hline
+6 & $\le1,000$ & $\le50$ & $\le5,000$ & =1 \\
+\hline
+7 & $\le100,000$ & $\le100$ & $\le500,000$ & =2 \\
+\hline
+8 & $\le10,000$ & $\le200$ & $\le50,000$ & =1 \\
+\hline
+9 & $\le1,000,000$ & $\le500$ & $\le5,000,000$ & \multirow{2}{*}{=2}\\
+\cline{1-4}
+10 & \multirow{4}{*}{$\le100,000$} & $\le1,000$ & $\le500,000$\\
+\cline{1-1}\cline{3-5}
+11 && $\le2,000$ & \multirow{2}{*}{$\le1,000,000,000$} & =1\\
+\cline{1-1}\cline{3-3}\cline{5-5}
+12 && $\le5,000$ && =2\\
+\cline{1-1}\cline{3-5}
+13 && \multirow{2}{*}{$\le20,000$} & $\le100,000$ & \multirow{3}{*}{=1} \\
+\cline{1-2}\cline{4-4}
+14 & $\le500,000$ && $\le500,000$\\
+\cline{1-4}
+15 & $\le100,000$ & $\le50,000$ & \multirow{6}{*}{$\le1,000,000,000$}\\
+\cline{1-3}\cline{5-5}
+16 & \multirow{2}{*}{$\le1,000,000$} & \multirow{2}{*}{$\le100,000$} && =2\\
+\cline{1-1}\cline{5-5}
+17 &&&& =3\\
+\cline{1-3}\cline{5-5}
+18 & $\le300,000$ & \multirow{3}{*}{$\le300,000$} && \multirow{3}{*}{=1}\\
+\cline{1-2}
+19 & \multirow{2}{*}{$\le1,000,000$} &&&\\
+\cline{1-1}
+20 &&&& \\
+\Xhline{3\arrayrulewidth}
+\end{tabular}
+\end{center}
+
+\paragraph{性质}
+\begin{enumerate}
+\item 无特殊性质
+\item 所有的$A$互不相同
+\item 所有的$A$相同
+\end{enumerate}
+
+\end{document}

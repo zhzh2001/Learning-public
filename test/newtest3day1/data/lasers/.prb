@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem version="1.1.0" type="TRA_0_4" maker="ccr-plus">
+    <source dir="lasers" code="100" file="lasers">
+        <language cmd="gcc -o lasers lasers.c -lm -static -O2" file="lasers.c" time="10"/>
+        <language cmd="g++ -o lasers lasers.cpp -lm -static -O2 -std=gnu++11" file="lasers.cpp" time="10"/>
+        <language cmd="fpc lasers.pas -O2" file="lasers.pas" time="10"/>
+    </source>
+    <task input="lasers.in" output="lasers.out" checker="fulltext" time="10">
+        <subtask score="5">
+            <point in="lasers1.in" out="lasers1.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers2.in" out="lasers2.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers3.in" out="lasers3.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers4.in" out="lasers4.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers5.in" out="lasers5.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers6.in" out="lasers6.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers7.in" out="lasers7.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers8.in" out="lasers8.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers9.in" out="lasers9.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers10.in" out="lasers10.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers11.in" out="lasers11.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers12.in" out="lasers12.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers13.in" out="lasers13.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers14.in" out="lasers14.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers15.in" out="lasers15.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers16.in" out="lasers16.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers17.in" out="lasers17.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers18.in" out="lasers18.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers19.in" out="lasers19.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="lasers20.in" out="lasers20.out" mem="512" time="1"/>
+        </subtask>
+    </task>
+</problem>

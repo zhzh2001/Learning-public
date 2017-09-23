@@ -1,0 +1,79 @@
+#include<fstream>
+#include<cmath>
+#include<thread>
+#include<algorithm>
+#include<utility>
+#include<string>
+#include<sstream>
+#include<ctime>
+#include<iostream>
+using namespace std;
+ifstream fin("fact.in");
+ofstream fout("fact.out");
+const long double huge=1e4000L;
+const int len=4000,N=10005;
+int n;
+pair<int,int> a[N];
+pair<long double,int> ans[N];
+string s[N];
+void calc(int l,int r,long double& ans,int& cnt,time_t& t)
+{
+	t=clock();
+	ans=1.0L;
+	cnt=0;
+	int j=0;
+	for(;j<n&&a[j].first<l;j++);
+	for(int i=l;i<=r;i++)
+	{
+		ans*=i;
+		if(ans>huge)
+		{
+			cnt++;
+			ans/=huge;
+		}
+		for(;j<n&&a[j].first==i;j++)
+			::ans[a[j].second]=make_pair(ans,cnt);
+	}
+	t=clock()-t;
+}
+int main()
+{
+	int k;
+	fin>>k;
+	for(;fin>>a[n].first;n++)
+		a[n].second=n;
+	sort(a,a+n);
+	long double ans1,ans2;
+	int cnt1,cnt2;
+	time_t time1,time2;
+	thread th1(calc,1,a[n-1].first/2,ref(ans1),ref(cnt1),ref(time1));
+	thread th2(calc,a[n-1].first/2+1,a[n-1].first,ref(ans2),ref(cnt2),ref(time2));
+	th1.join();
+	th2.join();
+	cerr<<time1<<' '<<time2<<endl;
+	int t1=floor(log10(ans1));
+	ans1/=pow(10.0L,t1);
+	for(int i=0;i<n;i++)
+	{
+		int t2=floor(log10(ans[a[i].second].first));
+		ans[a[i].second].first/=pow(10.0L,t2);
+		stringstream ss;
+		ss.precision(k);
+		if(a[i].first>a[n-1].first/2)
+		{
+			ans[a[i].second].first*=ans1;
+			if(ans[a[i].second].first>=10.0L)
+			{
+				t2++;
+				ans[a[i].second].first/=10.0L;
+			}
+			ss<<ans[a[i].second].first<<"e+"<<(long long)(cnt1+ans[a[i].second].second)*len+t1+t2;
+		}
+		else
+			ss<<ans[a[i].second].first<<"e+"<<(long long)ans[a[i].second].second*len+t2;
+		s[a[i].second]=ss.str();
+	}
+	for(int i=0;i<n;i++)
+		fout<<s[i]<<endl;
+	return 0;
+}

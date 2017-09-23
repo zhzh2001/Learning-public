@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem version="1.1.0" maker="ccr-plus" type="TRA_0_4">
+    <source code="100" dir="qkiller" file="qkiller">
+        <language time="10" file="qkiller.c" cmd="gcc -o qkiller qkiller.c -lm -static -O2"/>
+        <language time="10" file="qkiller.cpp" cmd="g++ -o qkiller qkiller.cpp -lm -static -O2 -std=gnu++11"/>
+        <language time="10" file="qkiller.pas" cmd="fpc qkiller.pas -O2"/>
+    </source>
+    <task time="10" input="qkiller.in" checker="spj" output="qkiller.out">
+        <subtask score="10">
+            <point time="1" out="qkiller1.out" mem="512" in="qkiller1.in"/>
+        </subtask>
+        <subtask score="10">
+            <point time="1" out="qkiller2.out" mem="512" in="qkiller2.in"/>
+        </subtask>
+        <subtask score="10">
+            <point time="1" out="qkiller3.out" mem="512" in="qkiller3.in"/>
+        </subtask>
+        <subtask score="10">
+            <point time="1" out="qkiller4.out" mem="512" in="qkiller4.in"/>
+        </subtask>
+        <subtask score="10">
+            <point time="1" out="qkiller5.out" mem="512" in="qkiller5.in"/>
+        </subtask>
+        <subtask score="10">
+            <point time="1" out="qkiller6.out" mem="512" in="qkiller6.in"/>
+        </subtask>
+        <subtask score="10">
+            <point time="1" out="qkiller7.out" mem="512" in="qkiller7.in"/>
+        </subtask>
+        <subtask score="10">
+            <point time="1" out="qkiller8.out" mem="512" in="qkiller8.in"/>
+        </subtask>
+        <subtask score="10">
+            <point time="1" out="qkiller9.out" mem="512" in="qkiller9.in"/>
+        </subtask>
+        <subtask score="10">
+            <point time="1" out="qkiller10.out" mem="512" in="qkiller10.in"/>
+        </subtask>
+    </task>
+</problem>

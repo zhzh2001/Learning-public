@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <Compiler Value="D:\lazarus\fpc\2.6.0\bin\i386-win32\fpc.exe" Date="1095326452"/>
+  <Params Value=" -Mdelphi -Scghi -O1 -g -gl -WG -vewnhi -l -FuD:\lazarus\lcl\units\i386-win32\win32 -FuD:\lazarus\lcl\units\i386-win32 -FuD:\lazarus\components\lazutils\lib\i386-win32 -FuD:\lazarus\packager\units\i386-win32 -FuE:\Delphi\Learn\Books\ -dLCL -dLCLwin32 Books.lpr"/>
+  <Complete Value="False"/>
+</CONFIG>

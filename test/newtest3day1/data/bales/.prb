@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem version="1.1.0" type="TRA_0_4" maker="ccr-plus">
+    <source dir="bales" code="100" file="bales">
+        <language cmd="gcc -o bales bales.c -lm -static -O2" file="bales.c" time="10"/>
+        <language cmd="g++ -o bales bales.cpp -lm -static -O2 -std=gnu++11" file="bales.cpp" time="10"/>
+        <language cmd="fpc bales.pas -O2" file="bales.pas" time="10"/>
+    </source>
+    <task input="bales.in" output="bales.out" checker="fulltext" time="10">
+        <subtask score="5">
+            <point in="bales1.in" out="bales1.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales2.in" out="bales2.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales3.in" out="bales3.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales4.in" out="bales4.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales5.in" out="bales5.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales6.in" out="bales6.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales7.in" out="bales7.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales8.in" out="bales8.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales9.in" out="bales9.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales10.in" out="bales10.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales11.in" out="bales11.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales12.in" out="bales12.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales13.in" out="bales13.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales14.in" out="bales14.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales15.in" out="bales15.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales16.in" out="bales16.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales17.in" out="bales17.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales18.in" out="bales18.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales19.in" out="bales19.out" mem="512" time="1"/>
+        </subtask>
+        <subtask score="5">
+            <point in="bales20.in" out="bales20.out" mem="512" time="1"/>
+        </subtask>
+    </task>
+</problem>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem type="TRA_0_4" version="1.2.0" maker="ccr-plus">
+    <source nolib="0" file="pair" dir="pair" code="100">
+        <language time="10" file="pair.c" cmd="gcc -o pair pair.c -lm -static -O2"/>
+        <language time="10" file="pair.cpp" cmd="g++ -o pair pair.cpp -lm -static -O2 -std=gnu++11"/>
+        <language time="10" file="pair.pas" cmd="fpc pair.pas -O2"/>
+    </source>
+    <task input="pair.in" time="10" checker="fulltext" output="pair.out">
+        <subtask score="30">
+            <point time="1" out="task1_1.out" in="task1_1.in" mem="512"/>
+            <point time="1" out="task1_2.out" in="task1_2.in" mem="512"/>
+        </subtask>
+        <subtask score="30">
+            <point time="1" out="task2_1.out" in="task2_1.in" mem="512"/>
+            <point time="1" out="task2_2.out" in="task2_2.in" mem="512"/>
+            <point time="1" out="task2_3.out" in="task2_3.in" mem="512"/>
+            <point time="1" out="task2_4.out" in="task2_4.in" mem="512"/>
+        </subtask>
+        <subtask score="20">
+            <point time="1" out="task3_1.out" in="task3_1.in" mem="512"/>
+            <point time="1" out="task3_2.out" in="task3_2.in" mem="512"/>
+            <point time="1" out="task3_3.out" in="task3_3.in" mem="512"/>
+        </subtask>
+        <subtask score="20">
+            <point time="1" out="task4_1.out" in="task4_1.in" mem="512"/>
+            <point time="1" out="task4_2.out" in="task4_2.in" mem="512"/>
+            <point time="1" out="task4_3.out" in="task4_3.in" mem="512"/>
+            <point time="1" out="task4_4.out" in="task4_4.in" mem="512"/>
+        </subtask>
+    </task>
+</problem>

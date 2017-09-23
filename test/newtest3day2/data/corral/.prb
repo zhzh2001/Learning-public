@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem version="1.1.0" maker="ccr-plus" type="TRA_0_4">
+    <source code="100" dir="corral" file="corral">
+        <language time="10" file="corral.c" cmd="gcc -o corral corral.c -lm -static -O2"/>
+        <language time="10" file="corral.cpp" cmd="g++ -o corral corral.cpp -lm -static -O2 -std=gnu++11"/>
+        <language time="10" file="corral.pas" cmd="fpc corral.pas -O2"/>
+    </source>
+    <task time="10" input="corral.in" checker="fulltext" output="corral.out">
+        <subtask score="5">
+            <point time="1" out="corral1.out" mem="512" in="corral1.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral2.out" mem="512" in="corral2.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral3.out" mem="512" in="corral3.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral4.out" mem="512" in="corral4.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral5.out" mem="512" in="corral5.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral6.out" mem="512" in="corral6.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral7.out" mem="512" in="corral7.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral8.out" mem="512" in="corral8.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral9.out" mem="512" in="corral9.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral10.out" mem="512" in="corral10.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral11.out" mem="512" in="corral11.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral12.out" mem="512" in="corral12.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral13.out" mem="512" in="corral13.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral14.out" mem="512" in="corral14.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral15.out" mem="512" in="corral15.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral16.out" mem="512" in="corral16.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral17.out" mem="512" in="corral17.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral18.out" mem="512" in="corral18.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral19.out" mem="512" in="corral19.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="1" out="corral20.out" mem="512" in="corral20.in"/>
+        </subtask>
+    </task>
+</problem>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem type="TRA_0_4" maker="ccr-plus" version="1.1.0">
+    <source code="100" dir="fact" file="fact">
+        <language time="10" cmd="gcc -o fact fact.c -lm -static -O2" file="fact.c"/>
+        <language time="10" cmd="g++ -o fact fact.cpp -lm -static -O2 -std=gnu++11" file="fact.cpp"/>
+        <language time="10" cmd="fpc fact.pas -O2" file="fact.pas"/>
+    </source>
+    <task time="10" input="fact.in" checker="spj" output="fact.out">
+        <subtask score="5">
+            <point time="3" mem="512" out="fact1.out" in="fact1.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact2.out" in="fact2.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact3.out" in="fact3.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact4.out" in="fact4.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact5.out" in="fact5.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact6.out" in="fact6.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact7.out" in="fact7.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact8.out" in="fact8.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact9.out" in="fact9.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact10.out" in="fact10.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact11.out" in="fact11.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact12.out" in="fact12.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact13.out" in="fact13.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact14.out" in="fact14.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact15.out" in="fact15.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact16.out" in="fact16.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact17.out" in="fact17.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact18.out" in="fact18.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact19.out" in="fact19.in"/>
+        </subtask>
+        <subtask score="5">
+            <point time="3" mem="512" out="fact20.out" in="fact20.in"/>
+        </subtask>
+    </task>
+</problem>
